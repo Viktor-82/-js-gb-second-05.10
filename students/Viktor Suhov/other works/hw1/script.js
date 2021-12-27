@@ -11,7 +11,14 @@ const renderGoodsItem = (title, price) => {
 
 const renderGoodList = (list) => {
     let goodList = list.map(item => renderGoodsItem(item.title, item.price));
-    document.querySelector('.goods-list').innerHTML = goodList;
-}
+    /* document.querySelector('.goods-list').innerHTML = goodList; */
+    console.dir(goodList);
+    /* В этой версии не будет запятых между карточками товаров */
+    let markup = '';
+    goodList.forEach(function(element) {
+        markup += element;
+    })
+    document.querySelector('.goods-list').innerHTML = markup;
+};
 
 renderGoodList(goods);
